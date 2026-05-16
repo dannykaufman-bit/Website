@@ -1138,9 +1138,67 @@ img {
   border-radius: 2px;
 }
 
+.cs-hero-image--crop-bottom {
+  overflow: hidden;
+}
+
+.cs-hero-image--crop-bottom img {
+  margin-bottom: -32px;
+}
+
 .footer-walker-canvas {
   display: block;
   width: 100%;
+}
+
+.cs-user-types {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 48px 0 64px;
+}
+
+.cs-user-type {
+  background: var(--bg);
+  padding: 32px 28px;
+}
+
+.cs-user-type-emoji {
+  font-size: 56px;
+  margin: 0 0 16px;
+  line-height: 1;
+}
+
+.cs-user-type-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cs-user-type-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.cs-user-type-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .cs-user-types {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cs-image-quad {
@@ -1174,6 +1232,38 @@ img {
   width: calc(50% - 8px);
   display: block;
   border-radius: 2px;
+}
+
+.cs-image-captioned-pair {
+  display: flex;
+  gap: 16px;
+  margin: 32px 0 64px;
+}
+
+.cs-image-captioned-pair-item {
+  flex: 1;
+  min-width: 0;
+}
+
+.cs-image-captioned-pair-item img {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+}
+
+.cs-image-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+  .cs-image-captioned-pair {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1278,6 +1368,44 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 4px;
+}
+
+.cs-findings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 48px;
+  margin-top: 32px;
+}
+
+.cs-findings-grid--single {
+  grid-template-columns: 1fr;
+}
+
+.cs-finding {
+  padding: 0;
+}
+
+.cs-finding-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 0 0 12px;
+}
+
+.cs-finding p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--text);
+}
+
+@media (max-width: 700px) {
+  .cs-findings-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================================

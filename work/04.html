@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Delta — Danny Kaufman</title>
-  <meta name="description" content="Project Delta — Interaction Design case study by Danny Kaufman." />
+  <title>Spotify for Artists IA and Navigation Redesign — Danny Kaufman</title>
+  <meta name="description" content="A full information architecture and navigation redesign for Spotify for Artists — from audit through rollout." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -24,7 +24,7 @@
   <!-- NAVIGATION -->
   <header class="nav" role="banner">
     <a href="../index.html" class="nav-logo">DK</a>
-    <div class="nav-title" data-text="PROJECT DELTA — INTERACTION DESIGN">PROJECT DELTA — INTERACTION DESIGN</div>
+    <div class="nav-title" data-text="SPOTIFY FOR ARTISTS — IA &amp; NAVIGATION REDESIGN">SPOTIFY FOR ARTISTS — IA &amp; NAVIGATION REDESIGN</div>
     <nav class="nav-links" role="navigation" aria-label="Main navigation">
       <a href="../work/01.html" class="active">WORK</a>
       <a href="../about.html">ABOUT</a>
@@ -42,73 +42,328 @@
     <section class="cs-hero" aria-label="Project header">
       <p class="cs-eyebrow">
         <span class="cs-eyebrow-num">04 / 07</span>
-        <span>Interaction Design</span>
+        <span>Information Architecture · Navigation</span>
       </p>
-      <h1 class="cs-title">Project Delta</h1>
+      <h1 class="cs-title">Spotify for Artists<br />IA &amp; Nav Redesign</h1>
+      <p class="cs-subtitle">Rebuilding the information architecture and navigation of Spotify for Artists from the ground up</p>
       <div class="cs-meta">
         <div class="cs-meta-item">
           <span class="meta-label">Role</span>
-          <span class="meta-value">Interaction Lead</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="meta-label">Timeline</span>
-          <span class="meta-value">May – Oct 2023</span>
+          <span class="meta-value">Sr. Designer, Platform Design Owner</span>
         </div>
         <div class="cs-meta-item">
           <span class="meta-label">Company</span>
-          <span class="meta-value">[Company]</span>
+          <span class="meta-value">Spotify</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="meta-label">Collaborators</span>
+          <span class="meta-value">Sr. UX Researcher, UX Writer, Sr. PM</span>
         </div>
         <div class="cs-meta-item">
           <span class="meta-label">Platform</span>
-          <span class="meta-value">iOS / Android</span>
+          <span class="meta-value">Web · Mobile</span>
         </div>
       </div>
     </section>
 
-    <!-- BANNER -->
-    <div class="cs-banner" aria-hidden="true">
-      <span class="cs-banner-num">04</span>
-    </div>
-
     <!-- CONTENT -->
     <article class="cs-content">
 
-      <div class="cs-section reveal">
-        <p class="cs-section-heading">Overview</p>
-        <h2 class="cs-section-title">Crafting a gesture-first mobile experience</h2>
-        <p>Project Delta was a complete rethinking of the mobile experience — moving from a button-heavy interface to a fluid, gesture-first interaction model. The goal was to bring the speed and expressiveness of native iOS and Android patterns into a complex, multi-feature product that had historically prioritized desktop.</p>
-        <p>I led the interaction design work from concept through implementation, spending significant time with the engineering team to understand what was feasible at 60fps, and prototyping extensively in Origami Studio and SwiftUI to validate ideas before any production code was written.</p>
+      <div class="cs-hero-image reveal" style="overflow: hidden;">
+        <img src="../images/work/04/Final+flow.gif" alt="Spotify for Artists site flow diagram" style="margin-bottom: -250px; filter: grayscale(100%);" />
       </div>
 
+      <!-- Background -->
       <div class="cs-section reveal">
-        <p class="cs-section-heading">The Challenge</p>
-        <h2 class="cs-section-title">Making complex power available through simple gestures</h2>
-        <p>The core tension was between discoverability and efficiency. Gestures are fast for users who know them, but invisible to those who don't. We solved this by designing a progressive disclosure model: obvious affordances for new users that gradually fade into the background as gestures are learned. The transition felt natural rather than arbitrary, guided by behavioral triggers rather than arbitrary time thresholds.</p>
+        <p class="cs-section-heading">Background</p>
+        <h2 class="cs-section-title">Story time</h2>
+        <p>Long ago, in a not-too-distant past, Spotify had two separate tools: one for artists and one for labels. As the platform grew, the lines between artist needs and label needs blurred as new capabilities were released. A decision was made to merge the two tools into one — named Spotify for Artists — which, ironically, prioritized the needs of labels. Are you confused yet? Bear with me.</p>
+        <p>At the time, teams were so focused on moving features into this new service that nobody stopped to think about where those features should actually live. That responsibility fell on product teams already stretched thin just getting their key features represented. Years passed. Spotify grew into the behemoth it is today. New features shipped. The IA got messier. The pain customers felt only got worse.</p>
       </div>
 
-      <div class="cs-process-note reveal">
-        <p>[Process documentation and imagery to be added — gesture vocabulary documentation, prototypes, side-by-side comparisons, engineering collaboration notes, A/B test results.]</p>
+      <!-- Problem -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Problem</p>
+        <h2 class="cs-section-title">The navigation was failing customers</h2>
+        <p>The primary navigation was bursting at the seams — on small enough screens, content was literally overlapping other content. The side navigation conflated artist views with global views with user-level administrative actions. It was a mess, and it was only going to get worse as the product scaled.</p>
+        <p>It became clear that while we had many aspirations for the platform, we couldn't achieve any of them without a clear information architecture and navigation.</p>
+        <div class="cs-image-pair">
+          <img src="../images/work/04/Dizzy1.webp" alt="Navigation problems in Spotify for Artists" />
+          <img src="../images/work/04/dizzy2.webp" alt="Navigation problems in Spotify for Artists" />
+        </div>
       </div>
 
+      <!-- My Role -->
       <div class="cs-section reveal">
-        <p class="cs-section-heading">Outcome</p>
-        <h2 class="cs-section-title">Faster, more expressive mobile sessions</h2>
-        <p>Post-launch analytics showed a significant increase in session depth on mobile — users were navigating deeper into the product and completing more tasks per session. Qualitative feedback praised the "speed" and "flow" of the new interaction model. App store ratings improved by half a star within two months of the release.</p>
+        <p class="cs-section-heading">My Role</p>
+        <h2 class="cs-section-title">Senior designer and platform design owner</h2>
+        <p>I was the senior designer and design owner for the Spotify for Artists platform team. I worked with one UX writer on content strategy, one senior UX researcher who led research with customers, and one senior PM.</p>
+      </div>
 
-        <div class="cs-stats">
-          <div class="cs-stat">
-            <div class="stat-value">40%</div>
-            <div class="stat-label">Efficiency Gain</div>
+      <!-- User Types -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Understanding the Core Users</p>
+        <h2 class="cs-section-title">Three types of users</h2>
+        <div class="cs-user-types">
+          <div class="cs-user-type">
+            <p class="cs-user-type-emoji">🧑🏽‍🎤</p>
+            <h3 class="cs-user-type-title">Artists</h3>
+            <p class="cs-user-type-desc">Need to understand how to grow their listener base and earn a living off their work through the many tools at their disposal on S4A.</p>
           </div>
-          <div class="cs-stat">
-            <div class="stat-value">2.3×</div>
-            <div class="stat-label">Retention</div>
+          <div class="cs-user-type">
+            <p class="cs-user-type-emoji">💿</p>
+            <h3 class="cs-user-type-title">Labels</h3>
+            <p class="cs-user-type-desc">Need to easily manage multiple artists simultaneously while never missing a key moment to grow their audiences.</p>
           </div>
-          <div class="cs-stat">
-            <div class="stat-value">+32 NPS</div>
-            <div class="stat-label">Satisfaction</div>
+          <div class="cs-user-type">
+            <p class="cs-user-type-emoji">👨🏽‍💻</p>
+            <h3 class="cs-user-type-title">Internal S4A Teams</h3>
+            <p class="cs-user-type-desc">Need a clear structure to build products and features into without the burden of making platform-level decisions that impact the entire S4A platform.</p>
           </div>
         </div>
+      </div>
+
+      <!-- Discovery -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Discovery</p>
+        <h2 class="cs-section-title">How we uncovered the full complexity</h2>
+        <ul class="cs-list">
+          <li><strong>Design audit.</strong> A thorough audit of every current page in the S4A web experience.</li>
+          <li><strong>Workshops with internal teams.</strong> Bringing teams together to understand their roadmaps and conduct group card sorts with the experts who build the product.</li>
+          <li><strong>Customer interviews and surveys.</strong> Interviewed and surveyed a diverse pool of users to understand mindsets and validate concepts.</li>
+          <li><strong>Comprehensive site flow diagram.</strong> Mapping the entire flow of Spotify for Artists to better understand the architecture as a system.</li>
+        </ul>
+      </div>
+
+      <!-- Audit -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">The Audit</p>
+        <div class="cs-split cs-split--wide-image">
+          <div class="cs-split-text">
+            <h2 class="cs-section-title">Grading nearly every surface</h2>
+            <p>We evaluated nearly every surface of the experience (both web and mobile) against four criteria: content hierarchy and clarity, effort required to use the surface, relevance of the surface to the workflow, and UX and copy inconsistencies.</p>
+          </div>
+          <div class="cs-split-image">
+            <img src="../images/work/04/the audit.webp" alt="The S4A design audit" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Audit Findings -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Audit Findings</p>
+        <h2 class="cs-section-title">Six things that had to change</h2>
+        <div class="cs-findings-grid">
+          <div class="cs-finding">
+            <p class="cs-finding-num">01 Everyone gets an identical experience</p>
+            <p>Without a bird's-eye view, it's difficult for our most task-oriented users to understand, navigate, and prioritize their work.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">02 No easy way to manage multiple artists</p>
+            <p>Whether you're a giant label or an artist in your garage, the experience doesn't adapt to your needs.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">03 Not built to scale</p>
+            <p>The top nav was already past the point of breaking — a storage space for unorganized features at different levels of hierarchy.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">04 Disconnected omnichannel</p>
+            <p>No discernible pattern for which features are available on desktop web vs. mobile web vs. native apps.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">05 "Teams" are a confusing concept</p>
+            <p>It's unclear which team you're acting as when you're on multiple S4A teams — especially in billing, campaign creation, and artist management.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">06 "You're on your own"</p>
+            <p>New users are left to poke around and discover things themselves. We don't do much in the way of guidance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internal Card Sort -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Understanding Product Teams</p>
+        <h2 class="cs-section-title">A card sort with our own organization</h2>
+        <div class="cs-split cs-split--wide-image">
+          <div class="cs-split-text">
+            <p>One particularly illuminating activity was an open card sort involving all of our design and product partners across the org. We compiled every current feature in Spotify for Artists along with every feature planned for the next three years. This gave us visibility into how large the platform would scale and where teams were trying to grow.</p>
+          </div>
+          <div class="cs-split-image">
+            <img src="../images/work/04/cardsort.webp" alt="Card sort activity with design and product teams" />
+          </div>
+        </div>
+        <p>We then broke into diverse groups to conduct separate card sorts of all these items — letting us see how product teams thought their content was grouped within the larger ecosystem.</p>
+        <ul class="cs-list">
+          <li>Many teams organized items into families that matched key user workflows (promotion, engaging with fans, earning money, etc.)</li>
+          <li>Many sortings pointed to the need for a much more consolidated team management experience at the user level — not mixed in with artist views and actions</li>
+          <li>All sortings shared very little resemblance to the current organizational structure</li>
+        </ul>
+      </div>
+
+      <!-- Research -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Research with Customers</p>
+        <h2 class="cs-section-title">Multiple stages, diverse customers</h2>
+        <p>Getting feedback from as diverse a set of customers as possible was pivotal to creating an IA and navigation that resonated across all our customer groups. My role in research was helping craft our objectives and discussion guide, creating testing materials (mockups, digital card sorts, prototypes), and helping synthesize findings. The senior UX researcher was the research lead throughout.</p>
+        <div class="cs-hero-image cs-hero-image--crop-bottom">
+          <img src="../images/work/04/researchgif.gif" alt="Research sessions with customers" />
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Stage 1</p>
+        <h2 class="cs-section-title">Generative research</h2>
+        <p>We had customers perform an open card sort of items in the current IA — capturing and understanding their mental models and key workflows. It was also a jumping-off point to talk about how they use our tools today and where they'd like to see them evolve. We also created tree tests to quickly check how our team's understanding of item groupings matched our customers', letting us move faster and with greater certainty.</p>
+        <div class="cs-image-pair">
+          <img src="../images/work/04/cardsorttask.gif" alt="Card sort task with customers" />
+          <img src="../images/work/04/treejack+yo.gif" alt="Tree test with customers" />
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Stage 2</p>
+        <h2 class="cs-section-title">Survey of 1,000 customers</h2>
+        <p>We surveyed 1,000 customers (.001% of the user base) to capture a wider range of mindsets and understand what their top tasks in S4A were — so our IA could be as adaptive to those workflows as possible.</p>
+        <p>From the 1,000 sampled, the top tasks customers perform in S4A were:</p>
+        <ul class="cs-list">
+          <li><strong>Release.</strong> Planning releases and boosting streams and growing awareness for music.</li>
+          <li><strong>Analyze.</strong> Track and understand performance metrics.</li>
+          <li><strong>Engage.</strong> Build fandom by engaging with fans.</li>
+        </ul>
+      </div>
+
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Stage 3</p>
+        <h2 class="cs-section-title">Evaluative research — two tracks</h2>
+        <p><strong>Top nav vs. side nav.</strong> Our research team ran tests with 8 S4A customers — 4 representing a single artist, 4 representing medium to large labels. The side navigation was the clear winner. Labels understood how it would create greater ease managing multiple artists. Single-artist teams found it simpler and more straightforward.</p>
+        <p><strong>New IA structure (2 rounds, 22 sessions).</strong> Across the two rounds, we ran 9 artist teams, 7 labels, and 6 managers. The first round validated the accuracy of our groupings and naming as they related to workflows. The second was driven heavily by UX writing — ensuring the specific naming had high resonance across all customer groups.</p>
+      </div>
+
+      <!-- Site Flow -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Full Site Flow Diagram</p>
+        <h2 class="cs-section-title">Mapping what nobody had mapped before</h2>
+        <p>One crucial gap: nobody held the wisdom of what the site architecture actually looked like today. With my background in service design, this was an area I was able to lead not just for my team but for the entire organization that builds into Spotify for Artists.</p>
+        <div class="cs-hero-image" style="overflow: hidden;">
+          <img src="../images/work/04/Final+flow.gif" alt="Full site flow diagram for Spotify for Artists" style="margin-bottom: -38px;" />
+        </div>
+        <p>Innovation at an IA level requires a deep understanding of the system itself. By mapping the entire architecture, our team was able to collaborate more deeply with partners, plan for future growth with greater certainty, and give partner teams clear insight to support their own product innovation. There are two versions — an as-is state and an evolving blueprint for teams to use as they scale and make changes.</p>
+      </div>
+
+      <!-- Exploration -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Exploration</p>
+        <h2 class="cs-section-title">Many iterations. Many hard questions.</h2>
+        <p>The navigation went through many iterations. This process deconstructed and reconstructed elements, questioned the reasoning behind decisions, and stress-tested every assumption. What happens if we removed the top nav entirely? What are the essential workflows? How do we decouple user-level actions from artist-level actions?</p>
+        <p>Fidelity started with sketches to quickly understand the range of directions we could go. When testing with customers, we kept fidelity intentionally low — so conversations stayed focused on their workflows, not on polished visuals.</p>
+        <div class="cs-hero-image">
+          <img src="../images/work/04/sketches.webp" alt="Early navigation sketches" />
+        </div>
+        <div class="cs-image-pair">
+          <img src="../images/work/04/low1.webp" alt="Low fidelity exploration 1" />
+          <img src="../images/work/04/low2.webp" alt="Low fidelity exploration 2" />
+        </div>
+        <div class="cs-image-pair">
+          <img src="../images/work/04/low3.webp" alt="Low fidelity exploration 3" />
+          <img src="../images/work/04/low4.webp" alt="Low fidelity exploration 4" />
+        </div>
+        <div class="cs-image-pair">
+          <img src="../images/work/04/low5.gif" alt="Low fidelity exploration 5" />
+          <img src="../images/work/04/low6.webp" alt="Low fidelity exploration 6" />
+        </div>
+      </div>
+
+      <!-- Side Nav -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Key Decision</p>
+        <h2 class="cs-section-title">Switching from a top nav to a side nav</h2>
+        <p>Many early iterations still featured a top nav. But through collaboration with teams across the org and deeper understanding of customer workflows, it became clear that a top nav simply wouldn't scale. In the coming years, Spotify for Artists would grow meteorically — introducing new suites and families of tools. Even after culling and consolidating the current navigation, the top nav had a clear expiration point where it would break.</p>
+        <p>Moving to a side nav also freed up that top space for more global features: search, help, and user settings.</p>
+      </div>
+
+      <!-- UX Writing -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Collaboration with UX Writing</p>
+        <h2 class="cs-section-title">Content strategy as a core design pillar</h2>
+        <p>A huge component of this work was content strategy — thinking critically about how to create greater resonance with our content and families of content. Through our learnings, we developed key heuristics for each layer of content in the IA. Below are our guiding principles for primary navigation items:</p>
+        <ul class="cs-list">
+          <li>Must encompass a unique suite of features, not just one tool</li>
+          <li>No unique feature names — must use familiar terms</li>
+          <li>Must not reflect internal org structures</li>
+          <li>Must be relevant and actionable for artists of all tiers</li>
+          <li>Must be frequently used on a weekly basis, in all seasons</li>
+          <li>Must be under ~10 characters to comply with accessibility standards and iOS/Android space limits</li>
+        </ul>
+      </div>
+
+      <!-- Validation -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Validation</p>
+        <h2 class="cs-section-title">A 10–50–100% rollout</h2>
+        <p>Significant changes to IA and navigation can cause major customer upheaval. To reduce that risk, we did a controlled rollout: a small set of customers first, then half, then everyone. With any IA or nav redesign, you actually expect to see a negative engagement trend as customers adapt to the new landscape. To our surprise, we didn't see any significant drop in engagement or number of actions taken. Qualitatively, customers told us that finding things had improved significantly.</p>
+        <div class="cs-hero-image">
+          <img src="../images/work/04/testing the waters.webp" alt="Controlled rollout of the navigation redesign" />
+        </div>
+      </div>
+
+      <!-- Final Nav Images -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Final Primary Navigation Images</p>
+        <h2 class="cs-section-title">Comparison</h2>
+        <div class="cs-image-captioned-pair">
+          <div class="cs-image-captioned-pair-item">
+            <img src="../images/work/04/oldIA.webp" alt="Old navigation and IA" />
+            <p class="cs-image-caption">Old nav and IA</p>
+          </div>
+          <div class="cs-image-captioned-pair-item">
+            <img src="../images/work/04/newIA.webp" alt="New navigation and IA" />
+            <p class="cs-image-caption">New nav and IA</p>
+          </div>
+        </div>
+        <div class="cs-hero-image">
+          <img src="../images/work/04/final walkthrough .gif" alt="Final navigation walkthrough" />
+        </div>
+      </div>
+
+      <!-- Final Nav -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Final Primary Navigation</p>
+        <h2 class="cs-section-title">What made the cut</h2>
+        <div class="cs-findings-grid cs-findings-grid--single">
+          <div class="cs-finding">
+            <p class="cs-finding-num">01 Analytics</p>
+            <p>Tools that help customers better understand their metrics and audience.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">02 Dashboard</p>
+            <p>The central landing showing high-level summary and learning material, soon to evolve into a surface that surfaces relevant actions and information across S4A.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">03 Campaigns</p>
+            <p>Tools that empower customers to broaden their audiences and revenue from Spotify.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">04 Video</p>
+            <p>Tools that add depth to the listening experience through visuals.</p>
+          </div>
+          <div class="cs-finding">
+            <p class="cs-finding-num">05 Fan Hub</p>
+            <p>Tools that help customers engage with fans.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Next Steps</p>
+        <h2 class="cs-section-title">A platform built to scale</h2>
+        <p><strong>Artist dashboard.</strong> Now that we have an IA and navigation that can scale well into Spotify's future, the central focus is on how we better push content to customers. The current home page pushes mostly marketing material — and customers are nearly unanimous: the surface they land on when they log in is completely useless. This is a huge opportunity to reimagine what "home" means for our customers.</p>
+        <div class="cs-hero-image">
+          <img src="../images/work/04/templates.gif" alt="Navigation component templates" />
+        </div>
+        <p><strong>Multi-artist home.</strong> In our prototypes for this phase we've already begun exploring the multi-artist experience. The next phase involves significantly more fidelity on those explorations and testing them with large labels.</p>
+        <p><strong>Creating templates.</strong> With the navigation updates underway, we've begun componentizing our designs so they're reusable for the other product teams that build into Spotify for Artists — including updated nav components and a refreshed grid system for greater consistency across teams.</p>
       </div>
 
     </article>
@@ -119,11 +374,11 @@
   <nav class="cs-nav" aria-label="Project navigation">
     <a href="03.html" class="cs-nav-prev">
       <span class="cs-nav-label">← Prev Project</span>
-      <span class="cs-nav-title">Project Gamma</span>
+      <span class="cs-nav-title">Roster: Multi-Artist Management</span>
     </a>
     <a href="05.html" class="cs-nav-next">
       <span class="cs-nav-label">Next Project →</span>
-      <span class="cs-nav-title">Project Epsilon</span>
+      <span class="cs-nav-title">Project Align</span>
     </a>
   </nav>
 
