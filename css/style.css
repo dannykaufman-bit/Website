@@ -1139,6 +1139,16 @@ img {
   border-radius: 2px;
 }
 
+.cs-hero-image--wide {
+  margin: 48px -180px 64px;
+}
+
+@media (max-width: 900px) {
+  .cs-hero-image--wide {
+    margin: 48px -24px 64px;
+  }
+}
+
 .cs-split {
   display: flex;
   gap: 48px;
