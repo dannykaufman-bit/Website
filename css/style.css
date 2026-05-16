@@ -1455,7 +1455,7 @@ img {
 /* ============================================================
    TAMAGOTCHI BUTTONS — compact at small sizes
    ============================================================ */
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .btn-icon { display: none !important; }
   .tama-btn { padding: 5px 9px !important; letter-spacing: 0.08em !important; }
 }
