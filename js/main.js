@@ -658,7 +658,8 @@
 
     function mkBtn(icon, iconColor, label, fn) {
       var b = document.createElement('button');
-      b.innerHTML = '<span style="color:' + iconColor + ';margin-right:5px;">' + icon + '</span>' + label;
+      b.innerHTML = '<span class="btn-icon" style="color:' + iconColor + ';margin-right:5px;">' + icon + '</span>' + label;
+      b.classList.add('tama-btn');
       b.style.cssText = 'background:transparent;border:1px solid rgba(240,238,233,0.55);color:rgba(240,238,233,0.88);font-family:\'JetBrains Mono\',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:5px 13px;cursor:none;transition:border-color 0.15s,color 0.15s,background 0.15s;';
       b.addEventListener('mouseenter',function(){b.style.borderColor='rgba(240,238,233,1)';b.style.color='#F0EEE9';b.style.background='rgba(240,238,233,0.08)';});
       b.addEventListener('mouseleave',function(){b.style.borderColor='rgba(240,238,233,0.55)';b.style.color='rgba(240,238,233,0.88)';b.style.background='transparent';});

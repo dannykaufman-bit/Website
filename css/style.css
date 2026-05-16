@@ -1453,6 +1453,14 @@ img {
 }
 
 /* ============================================================
+   TAMAGOTCHI BUTTONS — compact at small sizes
+   ============================================================ */
+@media (max-width: 500px) {
+  .btn-icon { display: none !important; }
+  .tama-btn { padding: 5px 9px !important; letter-spacing: 0.08em !important; }
+}
+
+/* ============================================================
    RESPONSIVE — SMALL MOBILE (≤ 480px)
    ============================================================ */
 @media (max-width: 480px) {
