@@ -7,6 +7,20 @@
   // Already authenticated this session — do nothing
   if (sessionStorage.getItem(AUTH_KEY) === '1') return;
 
+  // On bfcache restore, never show the gate
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      var g = document.getElementById('dk-gate');
+      if (g) g.remove();
+      var ov = document.querySelector('[style*="position:fixed"][style*="inset:0"]');
+      if (ov) ov.remove();
+      document.querySelectorAll('.hero-left, .marquee, .work-section, .about-snippet, .footer').forEach(function (el) {
+        el.style.visibility = '';
+        el.style.opacity = '';
+      });
+    }
+  });
+
   document.addEventListener('DOMContentLoaded', function () {
     var heroHome = document.querySelector('.hero--home');
 

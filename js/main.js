@@ -1001,6 +1001,16 @@
     elements.forEach(function (el) {
       observer.observe(el);
     });
+
+    // When navigating back, bfcache restores the page without re-firing
+    // IntersectionObserver — force all reveals visible immediately
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('in-view');
+        });
+      }
+    });
   }
 
   /* ----------------------------------------------------------
