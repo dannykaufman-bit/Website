@@ -72,7 +72,7 @@
     var W = 0, H = 0;
     var S = 4;  // canvas pixels per sprite pixel
 
-    var BREAKPOINT = 720;  // below this: stack scene under title
+    var BREAKPOINT = 980;  // below this: stack scene under title
 
     function resize() {
       W = canvas.width  = hero.offsetWidth;
@@ -384,7 +384,7 @@
       var isNarrow = W < BREAKPOINT;
       var sx = isNarrow
         ? Math.floor(W * 0.04 / S)          // full width on mobile
-        : Math.floor(W * 0.50 / S);         // right half on desktop
+        : Math.floor(W * 0.53 / S);         // slightly right of center on desktop
       var fy = isNarrow
         ? 140                                // fixed — scene below Chicago, IL on mobile
         : Math.floor(H * 0.60 / S);         // moved up — curtain rod aligns with DANNY top
