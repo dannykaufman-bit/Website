@@ -829,7 +829,7 @@
       if (W < 400) return;
 
       // Floor pixel line
-      P(sc.sx, sc.floorY, '#2A2A2A', Math.floor(W/S) - sc.sx, 1);
+      // floor line removed
 
       // Curtain rod (spans both curtains + window)
       P(sc.winX - 4, sc.winY - 3, '#BBBBBB', 28, 1);
