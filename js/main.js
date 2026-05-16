@@ -829,45 +829,6 @@
       if (W < 400) return;
 
       // Floor pixel line
-      // Wooden floor — planks with edge fade
-      var floorPx  = sc.floorY * S;
-      var floorH   = 10 * S;
-      var floorLeft  = sc.sx * S;
-      var floorRight = W;
-      var floorWidth = floorRight - floorLeft;
-
-      // Base wood colour
-      ctx.fillStyle = 'rgba(42,26,12,0.55)';
-      ctx.fillRect(floorLeft, floorPx, floorWidth, floorH);
-
-      // Plank lines
-      ctx.strokeStyle = 'rgba(0,0,0,0.35)';
-      ctx.lineWidth = 1;
-      for (var pl = 0; pl < 5; pl++) {
-        var py = floorPx + pl * (S * 2);
-        ctx.beginPath(); ctx.moveTo(floorLeft, py); ctx.lineTo(floorRight, py); ctx.stroke();
-      }
-      // Subtle grain dots
-      ctx.fillStyle = 'rgba(80,45,15,0.18)';
-      for (var gi = 0; gi < 60; gi++) {
-        var gx = floorLeft + (gi * 137) % floorWidth;
-        var gy = floorPx  + (gi * 31)  % floorH;
-        ctx.fillRect(gx, gy, S, S);
-      }
-
-      // Fade edges with gradients
-      var fadeW = Math.min(floorWidth * 0.25, 140);
-      var gL = ctx.createLinearGradient(floorLeft, 0, floorLeft + fadeW, 0);
-      gL.addColorStop(0, 'rgba(10,10,10,1)');
-      gL.addColorStop(1, 'rgba(10,10,10,0)');
-      ctx.fillStyle = gL;
-      ctx.fillRect(floorLeft, floorPx, fadeW, floorH);
-
-      var gR = ctx.createLinearGradient(floorRight - fadeW, 0, floorRight, 0);
-      gR.addColorStop(0, 'rgba(10,10,10,0)');
-      gR.addColorStop(1, 'rgba(10,10,10,1)');
-      ctx.fillStyle = gR;
-      ctx.fillRect(floorRight - fadeW, floorPx, fadeW, floorH);
 
       // Curtain rod (spans both curtains + window)
       P(sc.winX - 4, sc.winY - 3, '#BBBBBB', 28, 1);
