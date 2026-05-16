@@ -1139,6 +1139,48 @@ img {
   border-radius: 2px;
 }
 
+.cs-image-quad {
+  display: flex;
+  gap: 12px;
+  margin: 48px 0 64px;
+}
+
+.cs-image-quad img {
+  width: calc(25% - 9px);
+  display: block;
+  border-radius: 2px;
+}
+
+@media (max-width: 700px) {
+  .cs-image-quad {
+    flex-wrap: wrap;
+  }
+  .cs-image-quad img {
+    width: calc(50% - 6px);
+  }
+}
+
+.cs-image-pair {
+  display: flex;
+  gap: 16px;
+  margin: 48px 0 64px;
+}
+
+.cs-image-pair img {
+  width: calc(50% - 8px);
+  display: block;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .cs-image-pair {
+    flex-direction: column;
+  }
+  .cs-image-pair img {
+    width: 100%;
+  }
+}
+
 .cs-hero-image--wide {
   margin: 48px -180px 64px;
 }
