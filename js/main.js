@@ -386,7 +386,7 @@
         ? Math.floor(W * 0.04 / S)          // full width on mobile
         : Math.floor(W * 0.50 / S);         // right half on desktop
       var fy = isNarrow
-        ? 122                                // fixed — scene sits ~45px below title end
+        ? 140                                // fixed — scene below Chicago, IL on mobile
         : Math.floor(H * 0.60 / S);         // moved up — curtain rod aligns with DANNY top
 
       sc.floorY  = fy;
@@ -449,6 +449,11 @@
           btnRow.style.right     = 'auto';
           btnRow.style.left      = sceneCenterPx + 'px';
           btnRow.style.transform = 'translateX(-50%)';
+        }
+        if (typeof meterDiv !== 'undefined' && meterDiv) {
+          meterDiv.style.left = ((sc.deskX + 26) * S) + 'px';
+          meterDiv.style.top  = (sc.winY * S) + 'px';
+          meterDiv.style.right = 'auto';
         }
       }
     }
@@ -641,7 +646,7 @@
 
     // ── HTML UI — meters top-right, buttons bottom-right ─────
     var meterDiv = document.createElement('div');
-    meterDiv.style.cssText = 'position:absolute;top:calc(var(--nav-height,52px) + 14px);right:48px;z-index:3;pointer-events:none;display:flex;flex-direction:column;gap:3px;align-items:flex-end;';
+    meterDiv.style.cssText = 'position:absolute;z-index:3;pointer-events:none;display:flex;flex-direction:column;gap:3px;align-items:flex-start;';
 
     var btnRow = document.createElement('div');
     btnRow.style.cssText = 'position:absolute;bottom:100px;z-index:3;pointer-events:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 96px);transform:translateX(-50%);';
