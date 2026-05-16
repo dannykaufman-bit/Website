@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Epsilon — Danny Kaufman</title>
+  <meta name="description" content="Project Epsilon — Accessibility case study by Danny Kaufman." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/gate.js"></script>
+</head>
+<body>
+
+  <!-- GRID OVERLAY -->
+  <div class="grid-overlay" aria-hidden="true">
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="nav" role="banner">
+    <a href="../index.html" class="nav-logo">DK</a>
+    <div class="nav-title" data-text="PROJECT EPSILON — ACCESSIBILITY">PROJECT EPSILON — ACCESSIBILITY</div>
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="../work/01.html" class="active">WORK</a>
+      <a href="../about.html">ABOUT</a>
+    </nav>
+    <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="cs-hero" aria-label="Project header">
+      <p class="cs-eyebrow">
+        <span class="cs-eyebrow-num">05 / 06</span>
+        <span>Accessibility</span>
+      </p>
+      <h1 class="cs-title">Project Epsilon</h1>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">A11y Design Lead</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="meta-label">Timeline</span>
+          <span class="meta-value">Jan – Aug 2022</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="meta-label">Company</span>
+          <span class="meta-value">[Company]</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="meta-label">Platform</span>
+          <span class="meta-value">Web / iOS / Android</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER -->
+    <div class="cs-banner" aria-hidden="true">
+      <span class="cs-banner-num">05</span>
+    </div>
+
+    <!-- CONTENT -->
+    <article class="cs-content">
+
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Overview</p>
+        <h2 class="cs-section-title">Making an enterprise product truly accessible</h2>
+        <p>Project Epsilon was a comprehensive accessibility remediation and forward-looking design initiative. Ahead of an enterprise procurement cycle, the product needed to meet WCAG 2.1 AA standards — but rather than treating accessibility as a compliance checkbox, we used this moment to embed accessible design practice into how the entire design team worked.</p>
+        <p>I audited the full product against WCAG criteria, prioritized a remediation backlog with engineering, developed an accessibility annotation system for the design system, and ran training sessions for both designers and engineers on how to build accessibly from the start rather than retrofit later.</p>
+      </div>
+
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">The Challenge</p>
+        <h2 class="cs-section-title">Shifting from remediation to prevention</h2>
+        <p>The immediate challenge was fixing hundreds of existing accessibility issues within a compressed timeline. But the more important challenge — and the one with longer-lasting impact — was changing the culture. I worked with the design system team to add accessibility specs to every component, introduced automated accessibility linting into the CI pipeline, and partnered with product management to make accessibility part of the definition of done for new features.</p>
+      </div>
+
+      <div class="cs-process-note reveal">
+        <p>[Process documentation and imagery to be added — WCAG audit findings, remediation priority matrix, before/after component states, annotation system documentation, training materials.]</p>
+      </div>
+
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Outcome</p>
+        <h2 class="cs-section-title">WCAG 2.1 AA conformance achieved and maintained</h2>
+        <p>The product achieved full WCAG 2.1 AA conformance within the project timeline, directly supporting a major enterprise deal. More importantly, the process changes we introduced meant the regression rate for accessibility issues dropped dramatically in the quarters that followed. The accessibility annotation system is now standard practice across all design work.</p>
+
+        <div class="cs-stats">
+          <div class="cs-stat">
+            <div class="stat-value">40%</div>
+            <div class="stat-label">Efficiency Gain</div>
+          </div>
+          <div class="cs-stat">
+            <div class="stat-value">2.3×</div>
+            <div class="stat-label">Retention</div>
+          </div>
+          <div class="cs-stat">
+            <div class="stat-value">+32 NPS</div>
+            <div class="stat-label">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- CASE NAV -->
+  <nav class="cs-nav" aria-label="Project navigation">
+    <a href="04.html" class="cs-nav-prev">
+      <span class="cs-nav-label">← Prev Project</span>
+      <span class="cs-nav-title">Project Delta</span>
+    </a>
+    <a href="06.html" class="cs-nav-next">
+      <span class="cs-nav-label">Next Project →</span>
+      <span class="cs-nav-title">Project Zeta</span>
+    </a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-left">© 2026 Danny Kaufman</div>
+    <div class="footer-center">Sr. Staff Designer / Senior Manager of Product Design</div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/dkaufmandesign" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="https://read.cv/dkaufman" target="_blank" rel="noopener noreferrer">Read.cv ↗</a>
+      <a href="mailto:dkaufmandesign@gmail.com">Email ↗</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
