@@ -443,7 +443,7 @@
       } else {
         hero.style.minHeight = '';
         if (typeof btnRow !== 'undefined' && btnRow) {
-          btnRow.style.bottom    = '36px';
+          btnRow.style.bottom    = '100px';
           btnRow.style.top       = 'auto';
           btnRow.style.right     = '48px';
           btnRow.style.left      = 'auto';
@@ -643,7 +643,7 @@
     meterDiv.style.cssText = 'position:absolute;top:calc(var(--nav-height,52px) + 14px);right:48px;z-index:3;pointer-events:none;display:flex;flex-direction:column;gap:3px;align-items:flex-end;';
 
     var btnRow = document.createElement('div');
-    btnRow.style.cssText = 'position:absolute;bottom:36px;right:48px;z-index:3;pointer-events:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 96px);';
+    btnRow.style.cssText = 'position:absolute;bottom:100px;right:48px;z-index:3;pointer-events:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 96px);';
 
     var btnDiv = document.createElement('div');
     btnDiv.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:420px;align-items:center;';
