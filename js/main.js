@@ -669,7 +669,7 @@
       function bar(v,lbl) {
         var n=8,f=Math.round(v/100*n),s='';
         for(var i=0;i<n;i++) s+=i<f?'█':'░';
-        return '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:0.08em;color:rgba(240,238,233,0.45);">'+lbl+' '+s+'</div>';
+        return '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:0.08em;color:#F0EEE9;">'+lbl+' '+s+'</div>';
       }
       meterDiv.innerHTML =
         bar(ideas,       'IDEAS  ') +
