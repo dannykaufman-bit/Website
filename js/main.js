@@ -387,7 +387,7 @@
         : Math.floor(W * 0.50 / S);         // right half on desktop
       var fy = isNarrow
         ? 122                                // fixed — scene sits ~45px below title end
-        : Math.floor(H * 0.70 / S);
+        : Math.floor(H * 0.60 / S);         // moved up — curtain rod aligns with DANNY top
 
       sc.floorY  = fy;
       sc.sx      = sx;
