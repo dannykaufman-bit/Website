@@ -386,7 +386,7 @@
         ? Math.max(2, Math.floor((W/S - 82) / 2))  // centered on mobile
         : Math.floor(W * 0.53 / S);                 // slightly right of center on desktop
       var fy = isNarrow
-        ? 140                                // fixed — scene below Chicago, IL on mobile
+        ? 148                                // fixed — 32px below Chicago, IL on mobile
         : Math.floor(H * 0.60 / S);         // moved up — curtain rod aligns with DANNY top
 
       sc.floorY  = fy;
@@ -435,28 +435,34 @@
         hero.style.minHeight = heroH + 'px';
         if (typeof btnRow !== 'undefined' && btnRow) {
           var mSceneCenter = (sc.wbX * S + (sc.deskX + 24) * S) / 2;
-          btnRow.style.bottom    = 'auto';
-          btnRow.style.top       = (sceneBottomPx + 44) + 'px';
-          btnRow.style.right     = 'auto';
-          btnRow.style.left      = mSceneCenter + 'px';
-          btnRow.style.transform = 'translateX(-50%)';
+          var mSceneWidth  = (sc.deskX + 24 - sc.wbX) * S;
+          btnRow.style.bottom      = 'auto';
+          btnRow.style.top         = (sceneBottomPx + 44) + 'px';
+          btnRow.style.right       = 'auto';
+          btnRow.style.left        = mSceneCenter + 'px';
+          btnRow.style.transform   = 'translateX(-50%)';
+          btnRow.style.width       = mSceneWidth + 'px';
+          btnRow.style.maxWidth    = 'none';
+          btnRow.style.justifyContent = 'space-around';
         }
         if (typeof meterDiv !== 'undefined' && meterDiv) {
-          meterDiv.style.top   = 'calc(var(--nav-height,52px) + 14px)';
-          meterDiv.style.right = '16px';
-          meterDiv.style.left  = 'auto';
+          meterDiv.style.display = 'none';
         }
       } else {
         hero.style.minHeight = '';
         if (typeof btnRow !== 'undefined' && btnRow) {
           var sceneCenterPx = (sc.wbX * S + (sc.deskX + 24) * S) / 2;
-          btnRow.style.bottom    = '100px';
-          btnRow.style.top       = 'auto';
-          btnRow.style.right     = 'auto';
-          btnRow.style.left      = sceneCenterPx + 'px';
-          btnRow.style.transform = 'translateX(-50%)';
+          btnRow.style.bottom         = '100px';
+          btnRow.style.top            = 'auto';
+          btnRow.style.right          = 'auto';
+          btnRow.style.left           = sceneCenterPx + 'px';
+          btnRow.style.transform      = 'translateX(-50%)';
+          btnRow.style.width          = 'auto';
+          btnRow.style.maxWidth       = 'calc(100vw - 96px)';
+          btnRow.style.justifyContent = 'center';
         }
         if (typeof meterDiv !== 'undefined' && meterDiv) {
+          meterDiv.style.display = '';
           var meterLeft = Math.min((sc.deskX + 50) * S, W - 130);
           meterDiv.style.left = meterLeft + 'px';
           meterDiv.style.top  = ((sc.winY - 10) * S) + 'px';
