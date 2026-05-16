@@ -443,7 +443,7 @@
       } else {
         hero.style.minHeight = '';
         if (typeof btnRow !== 'undefined' && btnRow) {
-          var sceneCenterPx = (sc.sx * S + W) / 2;
+          var sceneCenterPx = (sc.wbX * S + (sc.deskX + 24) * S) / 2;
           btnRow.style.bottom    = '100px';
           btnRow.style.top       = 'auto';
           btnRow.style.right     = 'auto';
