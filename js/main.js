@@ -383,8 +383,8 @@
     function layout() {
       var isNarrow = W < BREAKPOINT;
       var sx = isNarrow
-        ? Math.floor(W * 0.04 / S)          // full width on mobile
-        : Math.floor(W * 0.53 / S);         // slightly right of center on desktop
+        ? Math.max(2, Math.floor((W/S - 82) / 2))  // centered on mobile
+        : Math.floor(W * 0.53 / S);                 // slightly right of center on desktop
       var fy = isNarrow
         ? 140                                // fixed — scene below Chicago, IL on mobile
         : Math.floor(H * 0.60 / S);         // moved up — curtain rod aligns with DANNY top
@@ -436,10 +436,15 @@
         if (typeof btnRow !== 'undefined' && btnRow) {
           var mSceneCenter = (sc.wbX * S + (sc.deskX + 24) * S) / 2;
           btnRow.style.bottom    = 'auto';
-          btnRow.style.top       = (sceneBottomPx + 20) + 'px';
+          btnRow.style.top       = (sceneBottomPx + 44) + 'px';
           btnRow.style.right     = 'auto';
           btnRow.style.left      = mSceneCenter + 'px';
           btnRow.style.transform = 'translateX(-50%)';
+        }
+        if (typeof meterDiv !== 'undefined' && meterDiv) {
+          meterDiv.style.top   = 'calc(var(--nav-height,52px) + 14px)';
+          meterDiv.style.right = '16px';
+          meterDiv.style.left  = 'auto';
         }
       } else {
         hero.style.minHeight = '';
