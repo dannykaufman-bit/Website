@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Alpha — Danny Kaufman</title>
-  <meta name="description" content="Project Alpha — Product Design case study by Danny Kaufman." />
+  <title>AI Native Workspace — Danny Kaufman</title>
+  <meta name="description" content="Rethinking how support agents collaborate with AI at ServiceNow." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -24,7 +24,7 @@
   <!-- NAVIGATION -->
   <header class="nav" role="banner">
     <a href="../index.html" class="nav-logo">DK</a>
-    <div class="nav-title" data-text="PROJECT ALPHA — PRODUCT DESIGN">PROJECT ALPHA — PRODUCT DESIGN</div>
+    <div class="nav-title" data-text="AI NATIVE WORKSPACE — SERVICENOW">AI NATIVE WORKSPACE — SERVICENOW</div>
     <nav class="nav-links" role="navigation" aria-label="Main navigation">
       <a href="../work/01.html" class="active">WORK</a>
       <a href="../about.html">ABOUT</a>
@@ -42,73 +42,107 @@
     <section class="cs-hero" aria-label="Project header">
       <p class="cs-eyebrow">
         <span class="cs-eyebrow-num">01 / 06</span>
-        <span>Product Design</span>
+        <span>Product Design · AI</span>
       </p>
-      <h1 class="cs-title">Project Alpha</h1>
+      <h1 class="cs-title">AI Native<br />Workspace</h1>
+      <p class="cs-subtitle">Rethinking how CSM and ITSM agents work alongside AI — at the platform level</p>
       <div class="cs-meta">
         <div class="cs-meta-item">
           <span class="meta-label">Role</span>
-          <span class="meta-value">Lead Designer</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="meta-label">Timeline</span>
-          <span class="meta-value">Jan – Jun 2024</span>
+          <span class="meta-value">Design Lead · IC + Manager</span>
         </div>
         <div class="cs-meta-item">
           <span class="meta-label">Company</span>
-          <span class="meta-value">[Company]</span>
+          <span class="meta-value">ServiceNow</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="meta-label">Team</span>
+          <span class="meta-value">1 Staff Designer, 1 Principal Designer, 1 Principal Researcher, 1 Product Manager, 1 Program Manager</span>
         </div>
         <div class="cs-meta-item">
           <span class="meta-label">Platform</span>
-          <span class="meta-value">Web / iOS</span>
+          <span class="meta-value">Web · Enterprise</span>
         </div>
       </div>
     </section>
 
-    <!-- BANNER -->
-    <div class="cs-banner" aria-hidden="true">
-      <span class="cs-banner-num">01</span>
-    </div>
-
     <!-- CONTENT -->
     <article class="cs-content">
 
-      <div class="cs-section reveal">
-        <p class="cs-section-heading">Overview</p>
-        <h2 class="cs-section-title">Redesigning the core product experience</h2>
-        <p>Project Alpha was a ground-up redesign of the primary product surface — the interface most users interact with every day. The goal was to reduce friction in the most common workflows while laying the groundwork for a more scalable design system.</p>
-        <p>Working closely with product management and engineering, we identified the top 10 user journeys that caused the most drop-off and frustration. We then systematically redesigned each one, testing concepts with real users and iterating rapidly to converge on solutions that worked across all target platforms.</p>
+      <div class="cs-hero-image reveal">
+        <img src="../images/work/01/hero.gif" alt="AI Native Workspace" />
       </div>
 
+      <!-- My Role -->
       <div class="cs-section reveal">
-        <p class="cs-section-heading">The Challenge</p>
-        <h2 class="cs-section-title">Balancing new capabilities with familiar patterns</h2>
-        <p>The biggest challenge was introducing significant new functionality without alienating the existing user base. Power users had built muscle memory around the old interface, and many workflows were deeply embedded in how teams did their work. We had to be surgical — improving without disrupting, and communicating change clearly when disruption was unavoidable.</p>
+        <p class="cs-section-heading">My Role</p>
+        <h2 class="cs-section-title">Manager and maker</h2>
+        <p>My role on this project was a bit unusual. I was managing a staff designer and a principal designer, setting direction and helping the team navigate a genuinely ambiguous space. But due to headcount constraints, I was also contributing as an IC alongside them. It was one of those configurations that's challenging to maintain well, and honestly one of the more rewarding ways I've worked.</p>
+      </div>
+
+      <!-- Problem -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Problem</p>
+        <h2 class="cs-section-title">AI is reshaping enterprise support. The tooling hasn't kept pace.</h2>
+        <p>As ServiceNow moves into an AI-native era, there's a real need to rethink how CSM and ITSM agents work together and alongside AI agents to resolve cases faster and with more confidence. That's the brief. But the problem my team helped surface went a level deeper.</p>
+      </div>
+
+      <!-- Identified Problem -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">The Problem We Helped Identify</p>
+        <h2 class="cs-section-title">The platform was following trends instead of following the work</h2>
+        <p>At the platform level, a lot of the AI componentry was mirroring what was popular in the industry: giant prompt bars, big empty text response areas, lots of visual breathing room. It looks like AI. But it's not designed around how a support agent actually spends their day.</p>
+        <p>Sometimes a big conversational prompt experience is exactly right. But sometimes AI should just be quietly doing its job in the background, putting the right information in front of the right person without making a show of it. We needed to design for both of those realities, and everything in between. The real question wasn't where AI lives in the UI. It was which modes of AI interaction actually serve how these people work.</p>
+      </div>
+
+      <!-- Framework -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Framework</p>
+        <h2 class="cs-section-title">Overt, Integrated, Invisible</h2>
+        <p>To give the team a shared lens, we developed a framework for thinking about how AI shows up in the support agent's workspace.</p>
+        <ul class="cs-list">
+          <li><strong>Overt.</strong> The agent is actively working with AI. Direct input, direct response. This is the prompt bar experience most people picture when they think of "using AI," and it has real value for complex, open-ended tasks.</li>
+          <li><strong>Integrated.</strong> AI lives inside existing UI componentry rather than alongside it. The components themselves are rethought to behave better in an AI-native context: smarter defaults, contextual suggestions, behavior that adapts to the case at hand.</li>
+          <li><strong>Invisible.</strong> Probably the most impactful mode. AI is working in the background, surfacing the right context to the right person at the right moment. It doesn't call attention to itself. The experience just feels simpler and more tailored, the cognitive load drops, and the agent can focus on the work.</li>
+        </ul>
+      </div>
+
+      <blockquote class="cs-quote reveal">
+        <p>"The most powerful AI experience might be the one the agent never notices — because everything they need is already there."</p>
+      </blockquote>
+
+      <!-- Future of Work -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Design Context</p>
+        <h2 class="cs-section-title">Designing for the 20% that matters most</h2>
+        <p>There's a real shift underway in enterprise support. AI agents are becoming capable of fully resolving around 80% of incoming cases on their own. That changes what it means to be a human agent in a meaningful way.</p>
+        <p>The remaining 20% are the difficult ones: complex, high-stakes cases where a human steps in partway through, often picking up a case that an AI agent has already been working. Getting that handoff right, making sure the human agent has full context and the confidence to act, became one of the most important design challenges we worked through.</p>
+      </div>
+
+      <!-- Modes of Working -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Modes of Working</p>
+        <h2 class="cs-section-title">Giving agents flexibility in how they work</h2>
+        <img src="../images/work/01/modes-of-work.png" alt="Modes of Work: Conversation First, Hybrid, and UI Driven layouts" class="cs-image" />
+        <p>On top of the Overt, Integrated, Invisible framework, we also wanted to give users real flexibility in how they actually engage with their workspace day to day. Different case types call for different ways of working, and we didn't want to force everyone into the same experience.</p>
+        <p>For simpler cases, a fully conversational interface makes sense. The agent can just talk to it. For most everyday work, a hybrid view works well — some structure, some conversation, the best of both. And for the complex, detail-heavy cases where an agent really needs to get into the weeds, a more traditional UI-driven layout gives them the control and density they need.</p>
+        <ul class="cs-list">
+          <li><strong>Conversation First.</strong> A chat-forward experience for cases where talking through the problem is the most natural way to work. Lower friction, lower cognitive overhead.</li>
+          <li><strong>Hybrid.</strong> A balanced view that combines conversational input with structured UI components. The sweet spot for most agents on most days.</li>
+          <li><strong>UI Driven.</strong> A dense, component-rich workspace for complex cases that require deep context, multiple data sources, and careful decision-making.</li>
+        </ul>
+      </div>
+
+      <!-- Challenges -->
+      <div class="cs-section reveal">
+        <p class="cs-section-heading">Challenges</p>
+        <h2 class="cs-section-title">Advocating up and across the organization</h2>
+        <p>This is where my role as a senior manager came into focus. Pressure-testing platform decisions meant I was spending real time with PMs and VPs on the platform side, advocating for use cases that were specific, consequential, and easy to deprioritize in a large organization.</p>
+        <p>That kind of cross-functional alignment is unglamorous work, but it's often what determines whether good design thinking actually lands. In this case it did. We were able to connect platform strategy to the real workflows of CSM teams, one of ServiceNow's fastest-growing areas of business, in a way that wouldn't have happened without someone in the room making that case.</p>
       </div>
 
       <div class="cs-process-note reveal">
-        <p>[Process documentation and imagery to be added — wireframes, user research synthesis, prototype iterations, usability testing insights, final design specs.]</p>
-      </div>
-
-      <div class="cs-section reveal">
-        <p class="cs-section-heading">Outcome</p>
-        <h2 class="cs-section-title">Measurable impact across key metrics</h2>
-        <p>After a phased rollout over six weeks, we saw significant improvements across the key metrics we had set out to improve. User satisfaction scores increased, task completion rates climbed, and support ticket volume related to the redesigned flows dropped substantially. The new design system foundations also accelerated subsequent feature work by the broader team.</p>
-
-        <div class="cs-stats">
-          <div class="cs-stat">
-            <div class="stat-value">40%</div>
-            <div class="stat-label">Efficiency Gain</div>
-          </div>
-          <div class="cs-stat">
-            <div class="stat-value">2.3×</div>
-            <div class="stat-label">Retention</div>
-          </div>
-          <div class="cs-stat">
-            <div class="stat-value">+32 NPS</div>
-            <div class="stat-label">Satisfaction</div>
-          </div>
-        </div>
+        <p>Additional design artifacts to be added. Due to the proprietary nature of this work, select materials are shown at a high level of abstraction.</p>
       </div>
 
     </article>
@@ -119,11 +153,11 @@
   <nav class="cs-nav" aria-label="Project navigation">
     <a href="06.html" class="cs-nav-prev">
       <span class="cs-nav-label">← Prev Project</span>
-      <span class="cs-nav-title">Project Zeta</span>
+      <span class="cs-nav-title">Transforming Support at IBM</span>
     </a>
     <a href="02.html" class="cs-nav-next">
       <span class="cs-nav-label">Next Project →</span>
-      <span class="cs-nav-title">Project Beta</span>
+      <span class="cs-nav-title">Spotify For Artists Home Redesign</span>
     </a>
   </nav>
 

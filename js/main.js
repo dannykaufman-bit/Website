@@ -1140,6 +1140,28 @@
     check();
   }
 
+  /* ----------------------------------------------------------
+     9. GLITCH EFFECT ON TITLES
+     ---------------------------------------------------------- */
+  function initGlitch() {
+    var els = Array.prototype.slice.call(
+      document.querySelectorAll('.hero-name, .cs-title')
+    );
+    if (!els.length) return;
+
+    function trigger() {
+      els.forEach(function(el) {
+        el.classList.add('glitching');
+        setTimeout(function() { el.classList.remove('glitching'); }, 380);
+      });
+      // Next glitch: random 5–14 seconds
+      setTimeout(trigger, 5000 + Math.random() * 9000);
+    }
+
+    // First glitch after 3–7 seconds
+    setTimeout(trigger, 3000 + Math.random() * 4000);
+  }
+
   function init() {
     initCursor();
     initNodes();
@@ -1151,6 +1173,7 @@
     initTypewriter();
     initCardHover();
     initMobileNav();
+    initGlitch();
   }
 
   if (document.readyState === 'loading') {

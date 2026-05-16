@@ -73,6 +73,21 @@ img {
   color: var(--bg);
 }
 
+/* ── Glitch effect ─────────────────────────────────────────── */
+@keyframes glitch {
+  0%   { transform: none; text-shadow: none; opacity: 1; }
+  15%  { transform: translate(3px, 0); text-shadow: -3px 0 rgba(255,30,80,0.8), 3px 0 rgba(0,220,255,0.8); }
+  30%  { transform: translate(-3px, 0) skewX(-1.5deg); text-shadow: 3px 0 rgba(255,30,80,0.7); opacity: 0.92; }
+  45%  { transform: translate(2px, -1px) skewX(1deg); text-shadow: -2px 0 rgba(0,220,255,0.8); }
+  60%  { transform: translate(-2px, 0); text-shadow: 2px 0 rgba(255,30,80,0.5), -2px 0 rgba(0,220,255,0.5); }
+  75%  { transform: translate(1px, 0); text-shadow: none; opacity: 0.95; }
+  100% { transform: none; text-shadow: none; opacity: 1; }
+}
+
+.glitching {
+  animation: glitch 0.35s steps(1) forwards;
+}
+
 /* ============================================================
    CUSTOM CURSOR
    ============================================================ */
@@ -1105,6 +1120,59 @@ img {
   padding-left: 16px;
   margin: 20px 0;
   font-style: italic;
+}
+
+.cs-image {
+  width: 100%;
+  display: block;
+  margin: 48px 0 64px;
+  border: 1px solid var(--border);
+}
+
+.cs-hero-image {
+  margin: 48px -24px 64px;
+}
+
+.cs-hero-image img {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+}
+
+.cs-split {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  margin-top: 32px;
+}
+
+.cs-split-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.cs-split-text p {
+  margin-top: 0;
+}
+
+.cs-split-image {
+  flex: 0 0 38%;
+}
+
+.cs-split-image img {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+}
+
+@media (max-width: 700px) {
+  .cs-split {
+    flex-direction: column;
+  }
+  .cs-split-image {
+    flex: none;
+    width: 100%;
+  }
 }
 
 .cs-process-note {
