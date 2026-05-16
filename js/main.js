@@ -451,8 +451,8 @@
           btnRow.style.transform = 'translateX(-50%)';
         }
         if (typeof meterDiv !== 'undefined' && meterDiv) {
-          meterDiv.style.left = ((sc.deskX + 26) * S) + 'px';
-          meterDiv.style.top  = (sc.winY * S) + 'px';
+          meterDiv.style.left = ((sc.deskX + 50) * S) + 'px';
+          meterDiv.style.top  = ((sc.winY - 10) * S) + 'px';
           meterDiv.style.right = 'auto';
         }
       }
