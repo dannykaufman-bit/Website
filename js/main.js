@@ -675,7 +675,7 @@
       function bar(v,lbl) {
         var n=8,f=Math.round(v/100*n),s='';
         for(var i=0;i<n;i++) s+=i<f?'█':'░';
-        return '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:0.08em;color:#F0EEE9;">'+lbl+' '+s+'</div>';
+        return '<div style="display:flex;gap:6px;font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:0.08em;color:#F0EEE9;align-items:center;"><span style="width:52px;text-align:right;flex-shrink:0;">'+lbl.trim()+'</span><span>'+s+'</span></div>';
       }
       meterDiv.innerHTML =
         bar(ideas,       'IDEAS  ') +
