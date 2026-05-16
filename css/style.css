@@ -274,7 +274,7 @@ img {
    HERO SECTION
    ============================================================ */
 .hero {
-  min-height: calc(100vh - 430px);
+  min-height: calc(100vh - 350px);
   padding-top: var(--nav-height);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -370,7 +370,7 @@ img {
    WORK SECTION
    ============================================================ */
 .work-section {
-  padding: 80px 48px;
+  padding: 0px 48px 80px;
   position: relative;
   z-index: 1;
 }
