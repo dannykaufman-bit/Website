@@ -1154,12 +1154,131 @@
         el.classList.add('glitching');
         setTimeout(function() { el.classList.remove('glitching'); }, 380);
       });
-      // Next glitch: random 5–14 seconds
-      setTimeout(trigger, 5000 + Math.random() * 9000);
+      // Next glitch: random 3.2–9 seconds (40% more frequent than original)
+      setTimeout(trigger, 3200 + Math.random() * 5760);
     }
 
-    // First glitch after 3–7 seconds
-    setTimeout(trigger, 3000 + Math.random() * 4000);
+    // First glitch after 1.9–4.5 seconds
+    setTimeout(trigger, 1920 + Math.random() * 2560);
+  }
+
+  function initFooterWalker() {
+    var target = document.querySelector('.about-snippet');
+    if (!target) return;
+
+    var S = 3;
+    var CW = 6, CH = 9;
+    var CAT_W = 9, CAT_H = 7;
+    var H = (CH + 14) * S; // extra height for floating hearts
+
+    var WALK = [
+      [' WWWW ','WDDDDW',' WWWW ','WWWWWW',' WWWW ',' WWWW ','WW  W ',' W  WW','W    W'],
+      [' WWWW ','WDDDDW',' WWWW ','WWWWWW',' WWWW ',' WWWW ',' W  WW','WW  W ','W    W']
+    ];
+
+    var CAT_SPR = [
+      ' GW   WG ',
+      'GGGGGGGGG',
+      'GGDgggDGG',
+      'GGGGgGGGG',
+      'GGGGGGGGG',
+      'GgGgGgGGG',
+      '  GGGGG  ',
+    ];
+
+    var HEART = [
+      ' P P ',
+      'PPPPP',
+      ' PPP ',
+      '  P  ',
+    ];
+
+    var PAL2 = { 'W':'#F0EEE9','D':'#111111','G':'#777777','g':'#BBBBBB','P':'#FF6699' };
+
+    var canvas = document.createElement('canvas');
+    canvas.className = 'footer-walker-canvas';
+    canvas.height = H;
+    target.parentNode.insertBefore(canvas, target);
+
+    var ctx2 = canvas.getContext('2d');
+    var W = 0;
+
+    function resize() {
+      W = canvas.width = document.documentElement.clientWidth;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function drawSpr(arr, ox, oy, flip, pal, alpha) {
+      ctx2.globalAlpha = alpha !== undefined ? alpha : 1;
+      for (var r = 0; r < arr.length; r++) {
+        var row = flip ? arr[r].split('').reverse().join('') : arr[r];
+        for (var c = 0; c < row.length; c++) {
+          var col = pal[row[c]];
+          if (!col) continue;
+          ctx2.fillStyle = col;
+          ctx2.fillRect(Math.round(ox + c) * S, Math.round(oy + r) * S, S, S);
+        }
+      }
+      ctx2.globalAlpha = 1;
+    }
+
+    var gx = 0, dir = 1, frameIdx = 0, frameTick = 0;
+    var SPEED = 0.6, FRAME_INT = 10;
+    var CAT_OFFSET = 14;
+    var hearts = [], heartTick = 0, HEART_INT = 28;
+
+    function tick() {
+      ctx2.clearRect(0, 0, W, H);
+
+      // Divider line — 1px, semi-transparent
+      ctx2.globalAlpha = 0.25;
+      ctx2.fillStyle = '#F0EEE9';
+      ctx2.fillRect(0, H - 1, W, 1);
+      ctx2.globalAlpha = 1;
+
+      // Move character
+      gx += dir * SPEED;
+      var maxGX = W / S - CW;
+      if (gx >= maxGX) { gx = maxGX; dir = -1; }
+      if (gx <= 0)     { gx = 0;     dir =  1; }
+
+      frameTick++;
+      if (frameTick >= FRAME_INT) { frameTick = 0; frameIdx = 1 - frameIdx; }
+
+      var catGX = gx - dir * CAT_OFFSET;
+      catGX = Math.max(0, Math.min(W / S - CAT_W, catGX));
+
+      var gy    = Math.floor(H / S) - CH;
+      var catGY = Math.floor(H / S) - CAT_H;
+
+      // Spawn hearts above cat
+      heartTick++;
+      if (heartTick >= HEART_INT) {
+        heartTick = 0;
+        hearts.push({
+          gx: catGX + CAT_W / 2 - 2 + (Math.random() - 0.5) * 3,
+          gy: catGY - 2,
+          alpha: 1.0
+        });
+      }
+
+      // Update and draw hearts
+      for (var i = hearts.length - 1; i >= 0; i--) {
+        hearts[i].gy -= 0.07;
+        hearts[i].alpha -= 0.018;
+        if (hearts[i].alpha <= 0) { hearts.splice(i, 1); continue; }
+        drawSpr(HEART, hearts[i].gx, hearts[i].gy, false, PAL2, hearts[i].alpha);
+      }
+
+      // Draw cat then character
+      drawSpr(CAT_SPR, catGX, catGY, dir === -1, PAL2);
+      drawSpr(WALK[frameIdx], gx, gy, dir === -1, PAL2);
+
+      requestAnimationFrame(tick);
+    }
+
+    tick();
   }
 
   function init() {
@@ -1174,6 +1293,7 @@
     initCardHover();
     initMobileNav();
     initGlitch();
+    initFooterWalker();
   }
 
   if (document.readyState === 'loading') {

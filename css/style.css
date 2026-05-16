@@ -490,7 +490,6 @@ img {
    ============================================================ */
 .about-snippet {
   background: var(--bg-surface);
-  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 64px 48px;
   display: flex;
@@ -1139,6 +1138,11 @@ img {
   border-radius: 2px;
 }
 
+.footer-walker-canvas {
+  display: block;
+  width: 100%;
+}
+
 .cs-image-quad {
   display: flex;
   gap: 12px;
@@ -1209,6 +1213,10 @@ img {
 
 .cs-split-image {
   flex: 0 0 38%;
+}
+
+.cs-split--wide-image .cs-split-image {
+  flex: 0 0 50%;
 }
 
 .cs-split-image img {
