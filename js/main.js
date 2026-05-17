@@ -1291,9 +1291,29 @@
     tick();
   }
 
+  /* ----------------------------------------------------------
+     CAROUSEL
+     ---------------------------------------------------------- */
+  function initCarousels() {
+    document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+      const slides = carousel.querySelectorAll('.cs-carousel-main img');
+      const thumbs = carousel.querySelectorAll('.cs-carousel-thumb');
+
+      function goTo(index) {
+        slides.forEach(function (s, i) { s.classList.toggle('active', i === index); });
+        thumbs.forEach(function (t, i) { t.classList.toggle('active', i === index); });
+      }
+
+      thumbs.forEach(function (thumb, i) {
+        thumb.addEventListener('click', function () { goTo(i); });
+      });
+    });
+  }
+
   function init() {
     initCursor();
     initNodes();
+    initCarousels();
     initPageTransitions();
     initScrollReveal();
     initScrollNav();

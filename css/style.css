@@ -1310,10 +1310,24 @@ img {
   flex: 0 0 50%;
 }
 
+.cs-split--xl-image .cs-split-image {
+  flex: 0 0 60%;
+}
+
+.cs-split--xl-image {
+  gap: 58px;
+  margin-left: -40px;
+  margin-right: -40px;
+}
+
 .cs-split-image img {
   width: 100%;
   display: block;
   border-radius: 2px;
+}
+
+.cs-split--image-left {
+  flex-direction: row-reverse;
 }
 
 @media (max-width: 700px) {
@@ -1398,7 +1412,7 @@ img {
 
 .cs-finding-num strong {
   font-weight: 700;
-  color: #2684FF;
+  color: var(--text);
 }
 
 .cs-finding p {
@@ -1724,6 +1738,87 @@ img {
 @media (max-width: 650px) {
   .btn-icon { display: none !important; }
   .tama-btn { padding: 5px 9px !important; letter-spacing: 0.08em !important; }
+}
+
+/* ============================================================
+   CAROUSEL
+   ============================================================ */
+.cs-carousel {
+  margin: 40px 0 64px;
+}
+
+.cs-carousel-main {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.cs-carousel-main img {
+  width: 100%;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cs-carousel-main img.active {
+  opacity: 1;
+  position: relative;
+  pointer-events: auto;
+}
+
+.cs-carousel-thumbs {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.cs-carousel-thumbs::-webkit-scrollbar {
+  height: 3px;
+}
+
+.cs-carousel-thumbs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cs-carousel-thumbs::-webkit-scrollbar-thumb {
+  background: var(--border-bright);
+  border-radius: 2px;
+}
+
+.cs-carousel-thumb {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.cs-carousel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cs-carousel-thumb.active {
+  opacity: 1;
+  border-color: var(--text-dim);
+}
+
+.cs-carousel-thumb:hover {
+  opacity: 0.8;
 }
 
 /* ============================================================
