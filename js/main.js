@@ -665,7 +665,7 @@
     btnRow.style.cssText = 'position:absolute;bottom:100px;z-index:3;pointer-events:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 96px);transform:translateX(-50%);';
 
     var btnDiv = document.createElement('div');
-    btnDiv.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:420px;align-items:center;';
+    btnDiv.style.cssText = 'display:flex;gap:8px;flex-wrap:nowrap;justify-content:flex-end;align-items:center;';
 
     function mkBtn(icon, iconColor, label, fn) {
       var b = document.createElement('button');
@@ -679,7 +679,9 @@
     }
     btnDiv.appendChild(mkBtn('★', '#FFE033', 'IDEATE',  ideateChar));
     btnDiv.appendChild(mkBtn('▣', '#44CC66', 'DESIGN',  workChar));
-    btnDiv.appendChild(mkBtn('♥', '#FF3333', 'PET CAT', petCat));
+    var petBtn = mkBtn('♥', '#FF3333', 'PET CAT', petCat);
+    petBtn.querySelector('.btn-icon').style.top = '1px';
+    btnDiv.appendChild(petBtn);
     btnDiv.appendChild(mkBtn('●', '#4488FF', 'JUGGLE',  juggleChar));
     btnRow.appendChild(btnDiv);
     hero.appendChild(meterDiv);

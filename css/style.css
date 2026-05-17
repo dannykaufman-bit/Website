@@ -195,7 +195,7 @@ img {
 
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text);
@@ -1383,8 +1383,8 @@ img {
   line-height: 1;
 }
 
-.cs-process-note--warning p {
-  color: var(--text);
+.cs-process-note.cs-process-note--warning p {
+  color: #ffffff;
   margin: 0;
 }
 
@@ -1845,7 +1845,21 @@ img {
 /* ============================================================
    TAMAGOTCHI BUTTONS — compact at small sizes
    ============================================================ */
-@media (max-width: 650px) {
+.tama-btn {
+  white-space: nowrap;
+  display: inline-flex !important;
+  align-items: center;
+}
+
+.btn-icon {
+  font-size: 14px !important;
+  line-height: 1;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+@media (max-width: 960px) {
   .btn-icon { display: none !important; }
   .tama-btn { padding: 5px 9px !important; letter-spacing: 0.08em !important; }
 }
