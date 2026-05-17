@@ -423,7 +423,7 @@ img {
    ============================================================ */
 .project-card {
   display: grid;
-  grid-template-columns: 48px 1fr 200px 80px 48px;
+  grid-template-columns: 48px 1fr 140px 180px 80px 0;
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid var(--border);
@@ -476,6 +476,13 @@ img {
 }
 
 .project-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text);
+  text-align: right;
+}
+
+.project-role {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text);
@@ -1622,6 +1629,10 @@ img {
     display: none;
   }
 
+  .project-role {
+    display: none;
+  }
+
   .project-arrow {
     grid-column: 3 / 4;
     grid-row: 1 / 3;
@@ -1733,6 +1744,50 @@ img {
 }
 
 /* ============================================================
+   PIE STAT
+   ============================================================ */
+.cs-pie-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 40px;
+}
+
+.cs-pie-stat {
+  flex: 1;
+}
+
+.cs-pie-chart {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.cs-pie-stat .cs-pie-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: #6BAED6;
+  margin-bottom: 4px;
+}
+
+.cs-pie-stat .cs-pie-value {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 700;
+  color: #6BAED6;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.cs-pie-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ============================================================
    TAMAGOTCHI BUTTONS — compact at small sizes
    ============================================================ */
 @media (max-width: 650px) {
@@ -1753,6 +1808,40 @@ img {
   border: 1px solid var(--border);
   overflow: hidden;
   border-radius: 2px;
+  cursor: pointer;
+}
+
+.cs-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.35);
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease;
+  pointer-events: auto;
+}
+
+.cs-carousel-arrow--prev { left: 12px; }
+.cs-carousel-arrow--next { right: 12px; }
+
+.cs-carousel-main:hover .cs-carousel-arrow {
+  opacity: 1;
+}
+
+.cs-carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .cs-carousel-main img {

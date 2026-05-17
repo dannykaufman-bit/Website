@@ -1296,13 +1296,45 @@
      ---------------------------------------------------------- */
   function initCarousels() {
     document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+      const main = carousel.querySelector('.cs-carousel-main');
       const slides = carousel.querySelectorAll('.cs-carousel-main img');
       const thumbs = carousel.querySelectorAll('.cs-carousel-thumb');
+      let current = 0;
 
       function goTo(index) {
-        slides.forEach(function (s, i) { s.classList.toggle('active', i === index); });
-        thumbs.forEach(function (t, i) { t.classList.toggle('active', i === index); });
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function (s, i) { s.classList.toggle('active', i === current); });
+        thumbs.forEach(function (t, i) { t.classList.toggle('active', i === current); });
       }
+
+      // Inject arrows
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'cs-carousel-arrow cs-carousel-arrow--prev';
+      prevBtn.innerHTML = '&#8592;';
+      prevBtn.setAttribute('aria-label', 'Previous slide');
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'cs-carousel-arrow cs-carousel-arrow--next';
+      nextBtn.innerHTML = '&#8594;';
+      nextBtn.setAttribute('aria-label', 'Next slide');
+
+      main.appendChild(prevBtn);
+      main.appendChild(nextBtn);
+
+      prevBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        goTo(current - 1);
+      });
+
+      nextBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        goTo(current + 1);
+      });
+
+      // Click anywhere on slide advances to next
+      main.addEventListener('click', function () {
+        goTo(current + 1);
+      });
 
       thumbs.forEach(function (thumb, i) {
         thumb.addEventListener('click', function () { goTo(i); });
