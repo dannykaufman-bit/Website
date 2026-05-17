@@ -1151,6 +1151,13 @@ img {
   border-radius: 2px;
 }
 
+.cs-hero-image .cs-image-caption {
+  margin: 8px 24px 0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+}
+
 .cs-hero-image--crop-bottom {
   overflow: hidden;
 }
@@ -1357,6 +1364,28 @@ img {
   border: 1px dashed var(--border-bright);
   padding: 24px 48px;
   margin: 32px 0;
+}
+
+.cs-process-note--warning {
+  background: rgba(255, 210, 0, 0.06);
+  border: 1px solid rgba(255, 210, 0, 0.4);
+}
+
+.cs-process-note--warning .cs-warning-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cs-process-note--warning .cs-warning-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.cs-process-note--warning p {
+  color: var(--text);
+  margin: 0;
 }
 
 .cs-process-note p {
