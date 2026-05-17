@@ -543,6 +543,7 @@ img {
   letter-spacing: 0.1em;
   text-decoration: none;
   transition: color 0.2s ease;
+  cursor: pointer;
 }
 
 .about-snippet-link:hover {
@@ -1388,11 +1389,16 @@ img {
 .cs-finding-num {
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
   color: var(--text-dim);
-  margin: 0 0 12px;
+  margin: 0;
+}
+
+.cs-finding-num strong {
+  font-weight: 700;
+  color: #2684FF;
 }
 
 .cs-finding p {
@@ -1400,6 +1406,10 @@ img {
   line-height: 1.6;
   margin: 0;
   color: var(--text);
+}
+
+.cs-finding .cs-finding-num + p {
+  margin-top: 8px;
 }
 
 @media (max-width: 700px) {

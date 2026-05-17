@@ -28,7 +28,7 @@
         document.body.style.cursor = 'none';
         cursor.style.opacity = '1';
       } else {
-        document.body.style.cursor = '';
+        document.body.style.cursor = 'auto';
         cursor.style.opacity = '0';
       }
     }
