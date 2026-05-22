@@ -1,8 +1,17 @@
 (function () {
   'use strict';
 
-  var PASSWORD = 'yaydesign'; // ← update to change the password
+  var PASSWORD_HASH = '7cc2e5687f99c3c94ac049ede9ef84c1ac4aa03cb7ed9df87a2e2dc92072c4c4';
   var AUTH_KEY = 'dk-auth';
+
+  function hashInput(str) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
+      .then(function(buf) {
+        return Array.from(new Uint8Array(buf))
+          .map(function(b) { return b.toString(16).padStart(2, '0'); })
+          .join('');
+      });
+  }
 
   // Already authenticated this session — do nothing
   if (sessionStorage.getItem(AUTH_KEY) === '1') return;
@@ -99,44 +108,41 @@
     setTimeout(function () { input.focus(); }, 200);
 
     function attempt() {
-      if (input.value === PASSWORD) {
-        err.textContent = '';
-        sessionStorage.setItem(AUTH_KEY, '1');
+      hashInput(input.value).then(function(hash) {
+        if (hash === PASSWORD_HASH) {
+          err.textContent = '';
+          sessionStorage.setItem(AUTH_KEY, '1');
 
-        // Fade out gate
-        gate.style.transition = 'opacity 0.35s ease';
-        gate.style.opacity = '0';
+          gate.style.transition = 'opacity 0.35s ease';
+          gate.style.opacity = '0';
 
-        setTimeout(function () {
-          gate.parentNode && gate.parentNode.removeChild(gate);
+          setTimeout(function () {
+            gate.parentNode && gate.parentNode.removeChild(gate);
+            hero.style.minHeight = '';
 
-          // Restore hero height
-          hero.style.minHeight = '';
+            if (heroLeft) {
+              heroLeft.style.visibility = '';
+              heroLeft.style.opacity = '0';
+              heroLeft.style.transition = 'opacity 0.5s ease';
+              setTimeout(function () { heroLeft.style.opacity = '1'; }, 20);
+            }
 
-          // Reveal hero text
-          if (heroLeft) {
-            heroLeft.style.visibility = '';
-            heroLeft.style.opacity = '0';
-            heroLeft.style.transition = 'opacity 0.5s ease';
-            setTimeout(function () { heroLeft.style.opacity = '1'; }, 20);
-          }
-
-          // Reveal everything below, staggered
-          afterHero.forEach(function (el, i) {
-            el.style.visibility = '';
-            el.style.opacity = '0';
-            el.style.transition = 'opacity 0.6s ease';
-            setTimeout(function () { el.style.opacity = '1'; }, 100 + i * 80);
-          });
-        }, 350);
-      } else {
-        err.textContent = 'Incorrect password';
-        input.value = '';
-        input.style.borderColor = 'rgb(220,50,50)';
-        setTimeout(function () {
-          input.style.borderColor = 'rgba(240,238,233,0.2)';
-        }, 1200);
-      }
+            afterHero.forEach(function (el, i) {
+              el.style.visibility = '';
+              el.style.opacity = '0';
+              el.style.transition = 'opacity 0.6s ease';
+              setTimeout(function () { el.style.opacity = '1'; }, 100 + i * 80);
+            });
+          }, 350);
+        } else {
+          err.textContent = 'Incorrect password';
+          input.value = '';
+          input.style.borderColor = 'rgb(220,50,50)';
+          setTimeout(function () {
+            input.style.borderColor = 'rgba(240,238,233,0.2)';
+          }, 1200);
+        }
+      });
     }
   }
 
@@ -188,17 +194,19 @@
     setTimeout(function () { input.focus(); }, 100);
 
     function attempt() {
-      if (input.value === PASSWORD) {
-        sessionStorage.setItem(AUTH_KEY, '1');
-        overlay.style.transition = 'opacity 0.4s ease';
-        overlay.style.opacity = '0';
-        setTimeout(function () { overlay.parentNode.removeChild(overlay); }, 400);
-      } else {
-        err.textContent = 'Incorrect password';
-        input.value = '';
-        input.style.borderColor = 'rgb(220,50,50)';
-        setTimeout(function () { input.style.borderColor = '#222'; }, 1200);
-      }
+      hashInput(input.value).then(function(hash) {
+        if (hash === PASSWORD_HASH) {
+          sessionStorage.setItem(AUTH_KEY, '1');
+          overlay.style.transition = 'opacity 0.4s ease';
+          overlay.style.opacity = '0';
+          setTimeout(function () { overlay.parentNode.removeChild(overlay); }, 400);
+        } else {
+          err.textContent = 'Incorrect password';
+          input.value = '';
+          input.style.borderColor = 'rgb(220,50,50)';
+          setTimeout(function () { input.style.borderColor = '#222'; }, 1200);
+        }
+      });
     }
   }
 
