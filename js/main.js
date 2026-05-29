@@ -523,6 +523,7 @@
     var stateTimer = 0;
     var facing    = -1;
     var screenPhase = 0;
+    var catYOffset = 0;
 
     var parts = [];
     function addParts(type, x, y, n) {
@@ -888,9 +889,11 @@
       // Rug
       spr(RUG, sc.rugX, sc.rugY);
 
-      // Sofa + cat
+      // Sofa + cat (cat hops down to the seat when being petted)
       spr(SOFA, sc.sofaX, sc.sofaY);
-      spr(CAT,  sc.catX,  sc.catY);
+      var catYTarget = (STATE === 'pettingCat') ? 6 : 0;
+      catYOffset += (catYTarget - catYOffset) * 0.2;
+      spr(CAT,  sc.catX,  sc.catY + Math.round(catYOffset));
 
       // Whiteboard
       spr(WB_FRAME, sc.wbX, sc.wbY);
