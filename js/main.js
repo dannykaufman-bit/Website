@@ -217,6 +217,28 @@
       'WWWWWW',
       ' WWWWW',
     ];
+    var CH_PET_A = [
+      ' WWWW ',
+      'WDDDDW',
+      ' WWWW ',
+      'WWWWWW',
+      ' WWWWW',
+      ' WWWW ',
+      ' W  W ',
+      ' W  W ',
+      'WW  WW',
+    ];
+    var CH_PET_B = [
+      ' WWWW ',
+      'WDDDDW',
+      ' WWWW ',
+      'WWWWWW',
+      ' WWWW ',
+      ' WWWWW',
+      ' W  W ',
+      ' W  W ',
+      'WW  WW',
+    ];
 
     // ── Room sprites ──────────────────────────────────────────
 
@@ -821,7 +843,7 @@
 
       if      (isTyping)   pose = tick%20<10 ? CH_SIT   : CH_SIT_B;
       else if (isRelaxing) pose = CH_RELAX;
-      else if (isPetting)  pose = tick%16<8  ? CH_WRITE : CH_STAND;
+      else if (isPetting)  pose = tick%16<8  ? CH_PET_A : CH_PET_B;
       else if (isJuggling) pose = tick%8<4   ? CH_HAPPY : CH_WRITE;
       else if (isBounce)   pose = tick%14<7  ? CH_HAPPY : CH_STAND;
       else if (isDance)    pose = tick%12<6  ? CH_HAPPY : CH_WALK_A;
