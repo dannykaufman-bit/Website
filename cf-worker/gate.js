@@ -138,7 +138,8 @@ function passwordHTML(showError) {
 <style>
   *,*:before,*:after { box-sizing: border-box; }
   body { margin: 0; min-height: 100vh; background: #0A0A0A; color: #F0EEE9; font-family: 'JetBrains Mono', monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
-  .logo { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; margin: 0 0 40px; }
+  .logo { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; margin: 0 0 32px; }
+  canvas { image-rendering: pixelated; image-rendering: crisp-edges; margin-bottom: 40px; }
   .label { font-size: 11px; color: #888; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 24px; }
   form { display: flex; width: 100%; max-width: 320px; }
   input { flex: 1; background: transparent; border: 1px solid ${showError ? 'rgb(220,50,50)' : '#222'}; border-right: none; color: #F0EEE9; font-family: inherit; font-size: 13px; padding: 12px 16px; outline: none; transition: border-color 0.2s; }
@@ -149,12 +150,67 @@ function passwordHTML(showError) {
 </head>
 <body>
   <p class="logo">DK</p>
+  <canvas id="dk-scene" width="192" height="144"></canvas>
   <p class="label">Enter password</p>
   <form method="POST" action="/__auth" autocomplete="off">
     <input type="password" name="password" placeholder="••••••••••" autofocus autocomplete="current-password" />
     <button type="submit">Enter</button>
   </form>
   <p class="err">${showError ? 'Incorrect password' : ''}</p>
+  <script>
+  (function () {
+    var ctx = document.getElementById('dk-scene').getContext('2d');
+    var S = 6;
+    var PAL = {
+      'W': '#F0EEE9', 'D': '#111111', 'h': '#7A4A2A', 'j': '#A07848',
+      'N': '#FFEE88', 'P': '#CC6688', 'O': '#DD8844', 'K': '#66AA77',
+      ' ': null
+    };
+    var WB = [
+      'hhhhhhhhhhhhhhhh','hjjjjjjjjjjjjjjh',
+      'h              h','h              h','h              h',
+      'h              h','h              h','h              h',
+      'h              h','h              h','h              h',
+      'h              h','h              h','h              h',
+      'h              h','h              h','h              h',
+      'h              h','hhhhhhhhhhhhhhhh','hjjjjjjjjjjjjjhh'
+    ];
+    var STKY = [['NNN','NNN','NNN'],['PPP','PPP','PPP'],['OOO','OOO','OOO'],['KKK','KKK','KKK']];
+    var CH_STAND = [' WWWW ','WDDDDW',' WWWW ','WWWWWW',' WWWW ',' WWWW ',' W  W ',' W  W ','WW  WW'];
+    var CH_WRITE = [' WWWW ','WDDDDW',' WWWW ','WWWWWW',' WWWWW',' WWWW ',' W  W ',' W  W ','WW  WW'];
+    function P(x, y, c, w, h) { ctx.fillStyle = c; ctx.fillRect(x*S, y*S, (w||1)*S, (h||1)*S); }
+    function spr(arr, ox, oy) {
+      for (var r=0; r<arr.length; r++) for (var c=0; c<arr[r].length; c++) {
+        var col = PAL[arr[r][c]]; if (col) P(ox+c, oy+r, col);
+      }
+    }
+    function sprFlip(arr, ox, oy) {
+      for (var r=0; r<arr.length; r++) {
+        var row = arr[r].split('').reverse().join('');
+        for (var c=0; c<row.length; c++) { var col = PAL[row[c]]; if (col) P(ox+c, oy+r, col); }
+      }
+    }
+    var tick = 0;
+    function frame() {
+      ctx.clearRect(0, 0, 192, 144);
+      spr(WB, 1, 0);
+      P(4, 21, '#7A4A2A', 2, 2);
+      P(12, 21, '#7A4A2A', 2, 2);
+      spr(STKY[0], 3, 4);
+      spr(STKY[1], 8, 4);
+      spr(STKY[2], 13, 4);
+      spr(STKY[3], 3, 9);
+      spr(STKY[0], 13, 9);
+      spr(STKY[2], 8, 14);
+      var bounce = Math.floor(tick/24) % 2;
+      var pose = (tick % 60 < 30) ? CH_WRITE : CH_STAND;
+      sprFlip(pose, 22, 14 - bounce);
+      tick++;
+      requestAnimationFrame(frame);
+    }
+    frame();
+  })();
+  </script>
 </body>
 </html>`;
 }
