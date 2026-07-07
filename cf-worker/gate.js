@@ -4,6 +4,7 @@
 //   ORIGIN          The full Netlify URL, e.g. https://peppy-syrniki-xxxxxx.netlify.app
 //   PASSWORD_HASH   SHA-256 hex of your password (no salt)
 //   COOKIE_SECRET   Random ~64-char string used to sign session cookies
+//   ORIGIN_SECRET   Random ~64-char string the Netlify edge function will validate
 //
 // Bind the Worker to your domain via: Workers Routes → dannyk.work/*
 
@@ -69,6 +70,9 @@ async function proxyToOrigin(request, env) {
   const target = new URL(url.pathname + url.search, env.ORIGIN);
   const proxied = new Request(target.toString(), request);
   proxied.headers.set('Host', target.host);
+  if (env.ORIGIN_SECRET) {
+    proxied.headers.set('X-Origin-Secret', env.ORIGIN_SECRET);
+  }
 
   const response = await fetch(proxied);
 
