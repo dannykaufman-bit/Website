@@ -1,22 +1,48 @@
 (function () {
   'use strict';
 
-  // SHA-256 hash of the required password.
-  // To change: run `echo -n "yourpassword" | shasum -a 256` and paste the hash below.
-  var PASSWORD_HASH = '0a9ccc93a4d4fd4357ba5a7020a6c81a689de49e786039fdbf0d59741a95e628';
+  // PBKDF2 hash of the required password. Uses 250,000 iterations of HMAC-SHA256
+  // with a random salt — makes each brute-force guess ~250,000x slower.
+  var PASSWORD_SALT = '2335cc76299d57853f293b6b19459871';
+  var PASSWORD_HASH = '16231f88aa2346926b95036136c94375fd88ebe00d5dad609d576321783aa83a';
+  var PBKDF2_ITERATIONS = 250000;
   var AUTH_KEY = 'sn-auth';
 
   if (sessionStorage.getItem(AUTH_KEY) === '1') return;
 
   document.documentElement.style.visibility = 'hidden';
 
+  function hexToBytes(hex) {
+    var bytes = new Uint8Array(hex.length / 2);
+    for (var i = 0; i < bytes.length; i++) bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+    return bytes;
+  }
+
+  function bytesToHex(buf) {
+    return Array.from(new Uint8Array(buf))
+      .map(function (b) { return b.toString(16).padStart(2, '0'); })
+      .join('');
+  }
+
   function hashInput(str) {
-    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
-      .then(function (buf) {
-        return Array.from(new Uint8Array(buf))
-          .map(function (b) { return b.toString(16).padStart(2, '0'); })
-          .join('');
-      });
+    return crypto.subtle.importKey(
+      'raw',
+      new TextEncoder().encode(str),
+      { name: 'PBKDF2' },
+      false,
+      ['deriveBits']
+    ).then(function (key) {
+      return crypto.subtle.deriveBits(
+        {
+          name: 'PBKDF2',
+          salt: hexToBytes(PASSWORD_SALT),
+          iterations: PBKDF2_ITERATIONS,
+          hash: 'SHA-256'
+        },
+        key,
+        256
+      );
+    }).then(bytesToHex);
   }
 
   function initScene(canvas) {
